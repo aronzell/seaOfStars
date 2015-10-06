@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<title>
+Calculate Sea of Stars Secondary Abilities
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+//begining of small web page to auto calculate SoS secondar abilities
+$(document).ready(function(){
+    $("#myB2").click(function(){
+        $("#strength").val(0);
+        $("#agility").val(0);
+        $("#health").val(0);
+        $("#intelligence").val(0);
+        $("#mind").val(0);
+        $("#speed").text("");
+        $("#lift").text("");
+        $("#stam").text("");
+        $("#bp").text("");
+    });
+    $("#myB").click(function(){
+        //check ability scores
+        if (!checkNumber(Number($("#strength").val()), "Strength")){
+            return;
+        }else if(!checkNumber(Number($("#agility").val()), "Agility")){
+            return;
+        }else if (!checkNumber(Number($("#health").val()), "Health")) {
+            return;
+        }else if (!checkNumber(Number($("#intelligence").val()), "Intelligence")) {
+            return;
+        }else if (!checkNumber(Number($("#mind").val()), "Mind")){
+            return;
+        }
+        
+        
+        //calculate speed
+        var newSpeed = round((Number($("#strength").val()) + Number($("#agility").val()))/60,2);
+        $("#speed").text(newSpeed);
+        
+        // calculate lift
+        var newLift = round(Number(($("#strength").val()) * Number($("#health").val())/45),2);
+        newLift = setNumDec(newLift,2);
+        $("#lift").text(newLift);
+        
+        //calculate stamina
+        var newStamina = round((Number($("#strength").val()) + Number($("#health").val()))/10,0);
+        $("#stam").text(newStamina);
+        
+        //calculate body pool
+        var newBP = round(Number(($("#health").val())/10),0);
+        $("#bp").text(newBP);
+        
+        alert($("#speed").id());
+        
+        
+    }); 
+    
+});
+
+function round(value, decimals) {
+    if (value == "0"){
+        return "0.00";
+    }else{
+        return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+    }
+}
+
+function setNumDec(number, neededLength){
+    var numOfDigits = number.toString().length;
+    
+    if (numOfDigits < neededLength + 2){
+        number = number+".";
+        var placeHolder = (neededLength + 2) - numOfDigits;
+        for (j = 0; j < placeHolder; j++){
+            number = number + "0";
+        }
+    }
+    return number;
+}
+
+function checkNumber(number, id){
+    //alert(number +"-"+ id);
+    if (number > 100 || number < 0){
+        //alert(id +" must be between 0 and 100");
+        document.getElementById("alert").innerHTML = "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Warning!</strong>" + id + " must be between 0 and 100</div>"
+        return false;
+    }else {
+        return true;
+    }
+}
+
+</script>
+
+<STYLE>
+<!--
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    align: center
+}
+-->
+th {
+    align: left
+}
+span {
+    display: inline-block;
+    *display: inline;/* for IE7*/
+    *zoom:1;/* for IE7*/
+    min-width: 50px;
+    font-weight: bold;
+    color: green
+</STYLE>
+
+</head>
+<body>
+<div class="nav" align="center">
+     <ul class="nav nav-pills">
+	<li><a href="index.html">Current Date</a></li>
+	<li><a href="Calc%20Time%20from%20Seconds%20Test.html">Current Time</a></li>
+	<li class="active"><a href="SoSSecondaryAbilities.html">Secondary Abilities</a></li>
+</ul>
+</div>
+
+<div class="jumbotron" id="logo" align="center">
+    <!-- <img src="SoS_Logo_v02.png" width=400 height=240/> -->
+    <img class="img-responsive" src="SoS_Logo_v02_400x240.png"/>
+</div>
+<div class="container">
+<div id="alert"></div>
+<div id="main-heading" align="center">
+    <h3>Calculate Secondary Abilities</hs>
+</div>
+<div id="primary" class="col-sm-12" align="center">
+    <h4>Primary Abilities</h4>
+    <table cellpadding="5">
+    <tr><td>Strength:</td><td><input id="strength" type="number" value=0 max="100"><br></td></tr>
+    <tr><td>Agility: </td><td><input id="agility" type="number" value=0 max="100"><br></td></tr>
+    <tr><td>Health: </td><td><input id="health" type="number" value=0 max="100"><br></td></tr>
+    <tr><td>Intelligence: </td><td><input id="intelligence" type="number" value=0 max="100"><br></td></tr>
+    <tr><td>Mind: </td><td><input id="mind" type="number" value=0 max="100"><br></td></tr>
+    </table>
+     
+</div>
+
+<div id="secondary" class="col-sm-12" align="center">
+    <h4>Secondary Abilities</h4>
+    <table cellpadding="5">
+    <tr><td>Speed [(Strength + Agility) / 60 mps]: </td><td><span id="speed"></span><br></td></tr>
+    <tr><td>Lift [(Strength x Health) / 45 kg]: </td><td><span id="lift"></span><br></td></tr>
+    <tr><td>Stamina [(Strength + Health) / 10]: </td><td><span id="stam"></span><br></td></tr>
+    <tr><td>Body Pool [Health / 10]: </td><td><span id="bp"></span><br></td></tr>
+    <tr><td></td><td><br></td></tr>
+    </table>
+</div>
+<div class="col-sm-12" align="center">
+    <p id="calcButton">
+        <br>
+        <p><button type="button" class="btn" id="myB">Calculate Secondary Abilities</button></p>
+        <p><button type="button" class="btn" id="myB2">Reset Values</button></p>
+    </p>
+</div>
+
+<div id="copyR" align="center" class="col-sm-12">
+    <br>
+    
+    <p>
+    <!--    <img src="TRG_Logo.png" width=100 height=129.87> -->
+        <img src="TRG_Logo.png" width=75 height=90>
+    </p>
+    <p style="color:red">
+        <b>Launching Fun</b>
+    </p>
+    <font size=1>
+        <p>
+            Copyright (c) 2015 Toy Rocket Games 
+        </p>
+        <p>
+            Remember, play more games!
+        </p>
+    </font>
+</div>
+
+</div>
+
+
+</body>
+</html>
