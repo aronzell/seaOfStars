@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<TITLE>Current Galactic Time</TITLE>
+
+<style>
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    align: center
+}
+th {
+    align: left
+}
+</style
+
+</HEAD>
+
+<BODY>
+<div class="nav" align="center">
+     <ul class="nav nav-pills">
+	<li><a href="index.html">Current Date</a></li>
+	<li class="active"><a href="Calc%20Time%20from%20Seconds%20Test.html">Current Time</a></li>
+	<li><a href="SoSSecondaryAbilities.html">Secondary Abilities</a></li>
+</ul>
+</div>
+
+<div class="jumbotron" id="logo" align="center">
+    <!-- <img src="SoS_Logo_v02.png" width=400 height=240/> -->
+    <img src="SoS_Logo_v02_400x240.png"/>
+    <br>
+</div>
+
+
+
+<div id="TDate" align="center"></div>
+
+<div id="GDate" align="center"></div>
+
+<div id="GDate2" align="center"></div>
+<div id="copyR" align="center">
+    <p>
+    <!--    <img src="TRG_Logo.png" width=100 height=129.87> -->
+        <img src="TRG_Logo.png" width=75 height=90>
+    </p>
+    <p style="color:red">
+        <b>Launching Fun</b>
+    </p>
+    <font size=1>
+        <p>
+            Copyright (c) 2015 Toy Rocket Games 
+        </p>
+        <p>
+            Remember, play more games!
+        </p>
+    </font>
+</div>
+
+<SCRIPT LANGUAGE="JavaScript">
+function calcTDate(userDate)
+{
+    //Get the current Earth time in the current time zone
+    d = new Date(userDate).getTime();
+    var oldD = new Date("04/15/1533").getTime();
+    var secs = (d-oldD)/1000;
+    var days = Math.floor(secs/86400);    
+    var secsSinceNewDay = Math.floor(secs%86400);
+    var hours = Math.floor(secsSinceNewDay/3600);
+    var min = Math.floor((secsSinceNewDay%3600)/60);
+    var minDec = secsSinceNewDay%3600;
+    var hoursDec = secsSinceNewDay/3600;
+    var currSec = Math.floor((secsSinceNewDay%3600)%60);
+    min = checkTime(min);
+    currSec = checkTime(currSec);
+    
+    document.getElementById("TDate").innerHTML = "<p>The time on Earth in your time zone is: <br><b><font size=6>"+ hours +":"+ min +":"+ currSec +"</font></b></p>";
+    
+    //Calculate the current galactic time
+    gD = new Date(userDate).getTime();
+    var oldGD = new Date("04/15/1533").getTime();
+    var gSecs = (gD-oldGD)/1000;
+    var gDays = Math.floor(gSecs/87500);    
+    var gSecsSinceNewDay = Math.floor(gSecs%87500);
+    var gHours = Math.floor(gSecsSinceNewDay/3500);
+    var gMin = Math.floor((gSecsSinceNewDay%3500)/70);
+    var gMinDec = (gSecsSinceNewDay%3500);
+    var gHoursDec = (gSecsSinceNewDay/3500);
+    var gCurrSec = Math.floor((gSecsSinceNewDay%3500)%70);
+    var gCurrSecDec = Math.floor(gMinDec/35);
+    gMin = checkTime(gMin);
+    gCurrSec = checkTime(gCurrSec);
+    gMinDec = checkGTime(gMinDec);
+    gHoursDec = checkSeconds(gMinDec, gHoursDec)
+  
+    
+    //document.getElementById("GDate").innerHTML = "<p><p>The Galactic time is: <br><b><font size=6>"+ gHours +":"+ gMin +":"+ gCurrSec +"</font></b><</p></p>";
+    document.getElementById("GDate2").innerHTML = "<p>The Galactic time is: <br><b><font size=6>"+ round(gHoursDec,2) +" - "+ gMinDec +"</font></b></p>";
+    //document.getElementById("GDate2").innerHTML = "<p><p><br><b><font size=6>"+ gHoursDec.toString().split(".")[1] +"</font></b></p></p>";
+    
+    var t = setTimeout(function(){(calcTDate(Date()))},500);
+}
+
+
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+function checkGTime(i) {
+    if (i<100) {i = "00" + i};
+    if (i<1000) {i = "0" + i};
+    return i;
+}
+
+function round(value, decimals) {
+    var roundedNum = Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+    roundedNum = setNumDec(roundedNum, decimals);
+    //return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+    return roundedNum;
+}
+
+function setNumDec(number, neededLength){
+    var numOfDigits = number.toString().length;
+    if (numOfDigits < neededLength + 2){
+        var placeHolder = (neededLength + 2) - numOfDigits;
+        for (j = 0; j < placeHolder; j++){
+            number = number + "0";
+        }
+    }
+    return number;
+}
+function checkSeconds(sec, time){
+    if (sec > 3465) {
+        hour = time.toString().split(".")[0];
+        frac = .99
+        time = hour + frac;
+    }
+    return time;
+}
+
+window.onload = calcTDate(Date());
+</SCRIPT>
+</BODY>
+</HTML>
