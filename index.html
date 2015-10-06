@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+<TITLE>Earth to Galactic Date Conversion</TITLE>
+<style>
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    align: center
+}
+th {
+    align: left
+}
+</style>
+
+</HEAD>
+<BODY>
+<div class="nav" align="center">
+     <ul class="nav nav-pills ">
+	<li class="active"><a href="index.html">Current Date</a></li>
+	<li class=><a href="Calc%20Time%20from%20Seconds%20Test.html">Current Time</a></li>
+	<li><a href="SoSSecondaryAbilities.html">Secondary Abilities</a></li>
+</ul>
+</div>
+
+<div class="jumbotron" id="logo" align="center">
+     <!-- <img src="SoS_Logo_v02.png"/> -->
+    <img src="SoS_Logo_v02_400x240.png"/>
+    <br>
+</div>
+
+
+
+<div id="GDate" align="center"></div>
+<div id="copyR" align="center">
+    <br>
+    
+    <p>
+    <!--    <img src="TRG_Logo.png" width=100 height=129.87> -->
+        <img src="TRG_Logo.png" width=75 height=90>
+    </p>
+    <p style="color:red">
+        <b>Launching Fun</b>
+    </p>
+    <font size=1>
+        <p>
+            Copyright (c) 2015 Toy Rocket Games 
+        </p>
+        <p>
+            Remember, play more games!
+        </p>
+    </font>
+</div>
+<div id="CalcDate" align="center">
+    <p></p>
+    <p>
+        <button type="button" class="btn" onclick="getDate()">Enter your own date</button>
+    </p>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+function getDate()
+{
+    var userDate = prompt("Please enter the date to convert to Galactic Standard (mm/dd/yyyy)", Date());
+    calcGDate(userDate);
+}
+function calcGDate(userDate)
+{
+    d = new Date(userDate).getTime();
+    var oldD = new Date("04/15/1533").getTime();
+    var secs = (d-oldD)/1000;
+    var year= Math.floor(secs/(87500*400));
+    var day= Math.floor((secs%(87500*400))/87500);
+    if (year < 0){
+        var era = "BGE";
+        year = year * -1;
+        day = day * -1;
+    } else{
+        var era = "GE";
+    }
+    
+    document.getElementById("GDate").innerHTML = "<p><b>"+ userDate +" as a Galactic Standard Date is:<p><font size=5>" + day + " - " + year + " " + era + "</font></b></p>(day - year GE)<br>BGE - Before Galactic Era<br>GE - Galactic Era</p>"
+ 
+}
+window.onload = calcGDate(Date());
+</SCRIPT>
+</BODY>
+</HTML>
