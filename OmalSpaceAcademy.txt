@@ -1,0 +1,44 @@
+OMAL SPACE ACADEMY
+The Omal Space Academy, O.S.A., is the Council of Elder's military academy. Like most of the academies of the founding races it has the traditional three branches, those who fly, those who fight and the ones who rescue those in need. One distinct difference between the O.S.A. and other military academies is the focus on team work. Since the Kaylin's are a canine race, pack life was very dominate in their evolution. This tradition of pack culture influences the myriad of team based challenges at the O.S.A. In fact it is very rare to find even written tests that are to be taken by an individual. 
+
+Upon entering the OSA the cadet must choose under which branch he or she will serve.
+
+O.S.A. - Ublukani
+The “Star Hounds.” The Ublukani are the skilled and resourceful group in the Kaylin Space Command, K.S.C., tasked with getting persons and material from point A to point B, maintaining air and space superiority in a conflict, and developing new and better ways to kill, fight, and heal. Fierce and dedicated they will leave no one behind and have been known to disobey direct orders in order to retrieve fellow K.S.C. troops.
+
+O.S.A. - Nuikani
+As with most other military land branches, the Nuikani focus on weapons, and taking the fight to the enemy. This includes land assaults, zero-g combat, boarding ships, repelling boarder and whatever else may be required. Nuikani are known by the old hunter honorific "Red Fangs." It is rumored that by the time you see a Nuikani on the battlefield he or she is already covered in blood. Their victim's blood.
+
+O.S.A. - Trukani
+If you are in trouble within Council space then it is the Trukani you want coming to your aid. They are the space rescue branch of the Kaylin Space Command and have been an operating branch for over half a millennium. 
+
+
+O.S.A. - Ublukani Cadet
+Prerequisites: Grew up in the Council of Elders
+Years: 4
+Qualities: Impulsive: Mild
+Skills: Computer Literacy (I, E, +2), Dodge (A, E, +2), K.E.W.:Pistol (A, E, +2), K.E.W.:SMG (A, E, +2), Knowledge: Tactics (I, In, +2), Space Rider (I, E, +2)
+Next Stage: Stage 4 – Career
+Life Paths:  Kaylin Space Command Tour of Duty
+Build Points: +1
+Random Events: Roll on the Academy Random Event Table 
+
+O.S.A. - Nuikani Cadet
+Prerequisites: Grew up in the Council of Elders
+Years: 4
+Qualities: Impulsive: Mild
+Skills: Computer Literacy (I, E, +2), Dodge (A, E, +2), First Aid (I, E, +2), Grav Vehicle Operation (A, E, +2), K.E.W.:Pistol (A, E, +2), K.E.W.:SMG (A, E, +2),  Knowledge: Tactics (I, In, +2), Space Rider (I, E, +2)
+Next Stage: Stage 4 – Career
+Life Paths:  Kaylin Space Command Tour of Duty
+Build Points: -3
+Random Events: Roll on the Academy Random Event Table
+
+O.S.A. - Trukani Cadet
+Prerequisites: Grew up in the Council of Elders
+Years: 4
+Qualities: Dedicated: Help the Helpless
+Skills: Computer Literacy (I, E, +2), Dodge (A, E, +2), First Aid (I, E, +2), K.E.W.: Pistols (A, E, +2), Knowledge: Tactics (I, In, +2), Security Systems (I, E, +2), Space Rider (I, E, +2), Space Craft Operation (A, E, +2), Space Suit Operation (A, E, +2)
+Next Stage: Stage 4 – Career
+Life Paths: Kaylin Space Command Tour of Duty
+Build Points: -5
+Random Events: Roll on the Academy Random Event Table
